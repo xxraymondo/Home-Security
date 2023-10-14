@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&family=Kanit&family=Rubik&display=swap" rel="stylesheet">
+
+
+</head>
+<body style="background-color: rgb(245, 245, 245);">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" style="z-index: 10;"data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Home secuirty</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#howItWorks">How it works</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#form">form</a>
+              </li>
+           
+            </ul>
+         
+          </div>
+        </div>
+      </nav>
+    <header  style="height: 100vh;">
+      
+            <div style="z-index: 2; " class="w-100 h-100 position-relative">
+
+                <img  src="/img/Home-Security-Vacation-scaled.jpg" class="w-100 h-100">
+                <div class="  position-absolute " style="z-index: 4; top: 0px; bottom:0px;left:0px;right:0px ;background-color:rgba(29, 29, 29, 0.379);"">
+             <div class="row justify-content-center align-items-center text-center  h-100" style="background-color:rgba(29, 29, 29, 0.379);" >
+                <div style="color: rgb(244, 244, 244);">
+                    <h1 >Help Protect Your Home with a New Security System</h1>
+                    <br>
+                    <h3>Quick and easy. Get matched with the best Home Security company in your area</h3>     
+                </div>
+               
+         
+        </div>
+            </div>
+    </div>
+    </header>
+    <section class="container py-5" id="howItWorks">
+        <div class="row">
+            <div class="col-md-6  " >
+                <div class=" h-100" style="display: flex; flex-direction: column;justify-content: center; ">
+                    <h3>How It Works: </h3>
+                    <p>        Safe Home Pros services hundreds of brands and provides trusted information for millions of individuals across the United States
+                    </p>
+            <p>
+                Easily compare competitors
+                <br>
+                Strengthen your consumer awareness
+                <br>
+                Find the best rates for your financial needs
+            </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="./img/smart-home2-1024x683.jpg" width="100%">
+            </div>
+        </div>
+
+        
+        
+    </section>
+<section class="container my-5" id="form" style="height: 100vh; ">
+   
+
+        <div id="carouselExample" class="carousel slide bg-dark text-light " style="height: 100%; border: rgb(62, 62, 62) 10px solid; border-radius: 20px;">
+            <div class="carousel-inner  h-100">
+              <div class="carousel-item active p-3">
+               <form class="container " id="myForm" >
+                <p >Q7: What is your address?</p> 
+        
+                  
+
+                <div> <input type="text" name="address" id="questionSevenAnswer"  class="searchInput  form-control w-100" placeholder="Type to search.."/>
+                </div>
+                <ul class="list text-dark" id="searchResult" ></ul>
+              <p>Q1:What type of property is this system for?</p>
+               <div class="form-check">
+                <input class="form-check-input" value="Owned" type="radio" name="property_type" id="questionOneAnswer1" checked>
+                <label class="form-check-label"  for="questionOneAnswer1">
+                    Owned
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" value="Rented" type="radio" name="property_type" id="questionOneAnswer2" >
+                <label class="form-check-label" for="questionOneAnswer2">
+                    Rented
+                </label>
+              </div>
+              </div>
+              <div class="carousel-item p-3">
+                <p>Q2:What is your zip code?</p>
+                <input name="zip_code" id="questionTwoAnswer"  class="form-control w-25">
+              </div>
+              <div class="carousel-item p-3">
+                 
+                <p>Q3:What is your installation preference?</p>
+                <div class="form-check">
+                 <input class="form-check-input" value="Professional installation" type="radio" name="installation_preference" id="questionThreeAnswer1" checked>
+                 <label class="form-check-label" for="questionThreeAnswer1">
+                    Professional installation
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" value="Self installation" type="radio" name="installation_preference" id="questionThreeAnswer2" >
+                 <label class="form-check-label" for="questionThreeAnswer2">
+                    Self installation
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" value="No preference" type="radio" name="installation_preference" id="questionThreeAnswer3" >
+                 <label class="form-check-label" for="questionThreeAnswer3">
+                 No preference
+                 </label>
+               </div>
+              </div>
+              <div class="carousel-item p-3">
+                <p>#4: What home security features would you like to have? ( ** ability to select multiple)
+                    </p>
+                    <div class="form-check">
+                        <input class="form-check-input features" type="checkbox" name="features" value="Cameras" id="questionFourAnswer1">
+                        <label class="form-check-label" for="questionFourAnswer1">
+                            Cameras
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input features" type="checkbox" name="features" value="Motion Sensors" id="questionFourAnswer2" checked>
+                        <label class="form-check-label" for="questionFourAnswer2">
+                            Motion Sensors
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input features" type="checkbox" name="features" value="Glass break sensors" id="questionFourAnswer3" checked>
+                        <label class="form-check-label" for="questionFourAnswer3">
+                            Glass break sensors
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input features" type="checkbox" name="features" value="Doorbell Cameras" id="questionFourAnswer4" checked>
+                        <label class="form-check-label" for="questionFourAnswer4">
+                            Doorbell Cameras
+                        </label>
+                      </div>
+              </div>
+              <div class="carousel-item p-3">
+                 
+                <p>Q5: What kind of System do you need?
+                </p>
+                <div class="form-check">
+                 <input class="form-check-input" value="Burglar / intrusion" type="radio" name="system_type" id="questionFiveAnswer1" checked>
+                 <label class="form-check-label" for="questionFiveAnswer1">
+                    Burglar / intrusion
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" value="Fire detection" type="radio" name="system_type" id="questionFiveAnswer2" >
+                 <label class="form-check-label" for="questionFiveAnswer2">
+                    Fire detection
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" value="Both burglar and fire detection" type="radio" name="system_type" id="questionFiveAnswer3" >
+                 <label class="form-check-label" for="questionFiveAnswer2">
+                    Both burglar and fire detection
+                 </label>
+               </div>
+              </div>
+              <div class="carousel-item p-3">
+                 
+                <p>Q6: How many entrances exist?
+                </p>
+                <div class="form-check">
+                 <input class="form-check-input" type="radio" value="1" name="entrances" id="questionSixAnswer1" checked>
+                 <label class="form-check-label" for="questionSixAnswer1">
+                    1
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" value="2-4" name="entrances" id="questionSixAnswer2" >
+                 <label class="form-check-label" for="questionSixAnswer2">
+                    2-4
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" value="5" name="entrances" id="questionSixAnswer3" >
+                 <label class="form-check-label" for="questionSixAnswer3">
+                    5
+                 </label>
+               </div>
+               <div class="form-check">
+                 <input class="form-check-input" type="radio" value="More than 5" name="entrances" id="questionSixAnswer4" >
+                 <label class="form-check-label" for="questionSixAnswer4">
+                    More than 5
+                 </label>
+               </div>
+              </div>
+              <div class="carousel-item p-3">
+             
+              </div>
+
+
+              <div class="carousel-item p-3">
+                <p>Q8: Your Details</p>
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">First name</label>
+                  <input type="text" class="form-control" name="first_name" id="firstName" placeholder="First name">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" name="last_name"  id="lastName" placeholder="Last name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="emailValidation" class="form-label">Email address</label>
+                    <div class="input-group ">
+                        <input type="email" id="emailValidation" name="email_address" class="form-control">
+                        <button class="btn btn-success" type="button" id="validateEmailBtn" aria-expanded="false">validate</button>
+                    </div>
+                    <p style="font-size: 10px;">Please click on validate before submition</p>
+                  </div>
+                 
+                  <div class=" mb-3">
+                    <label for="phoneNumberValidation" class="form-label">Phone</label>
+                    <div class="input-group ">
+                    <input type="tel" id="phoneNumberValidation" name="phone_home"	 class="form-control"   >
+    
+                    <button class="btn btn-success" type="button" id="validateBtn" aria-expanded="false">validate</button>
+                </div>
+                <p style="font-size: 10px;">Please click on validate before submition</p>
+                  </div>
+                  <!-- disabled = "true"; -->
+                  <button type="submit" class="btn btn-primary"   id="submition">submit</button>
+              </div>
+            </form>
+            <div class="text-center p-2" style="display: flex; justify-content:space-between; position: absolute ; width: 100%; bottom: 0px;">
+                <button type="button"  data-bs-target="#carouselExample" data-bs-slide="prev"  class="btn btn-primary">Previous</button>
+                <button type="button"  data-bs-target="#carouselExample" data-bs-slide="next" class="btn btn-primary">Next</button>
+               
+            </div>
+        </div>
+      
+       
+          </div>
+ 
+</section>
+<footer class="py-3 text-center container">
+    Safe Home Pros offers rankings and reviews for the top companies in many verticals across different industries in the United States.
+     We strive to remain both objective and informative, with the goal of giving our users the best experience. 
+     The opinions and the prices we represent on our site(s) are subject to change without notice.
+      We are an independent, advertising-supported comparison service.
+       The offers that appear on this site are from companies that compensate us.
+        This compensation may impact how and where products appear on this site, including, for example, the order in which they may appear within the listing categories. 
+        <br><br>Copyright © 2023 Safe Home Pros.
+</footer>
+<!-- c6c8a0f3145c485994d38bc9325168dc -->
+
+
+
+<!-- <script async
+    src="https://maps.googleapis.com/maps/api/js?key=c6c8a0f3145c485994d38bc9325168dc&libraries=places&callback=initMap">
+</script> -->
+<script type="module" src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script  type="module" src="./js/script.js"></script>
+
+</body>
+</html>
