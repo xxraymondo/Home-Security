@@ -1,27 +1,42 @@
-// import * as $ from "../node_modules/jquery/dist/jquery.js";
 let phoneNumberValidation =document.getElementById("phoneNumberValidation");
 let emailValidation =document.getElementById("emailValidation");
 let validateBtn=document.getElementById("validateBtn");
 let validateEmailBtn=document.getElementById("validateEmailBtn");
 let submition=document.getElementById("submition");
+let emailVerificationResult;
+let NumberVerificationResult;
+
 let state;
 let city;
-// phoneNumberValidation.addEventListener("keyup", function(e) {
-
-//     getNumber(phoneNumberValidation.value)
-
-// });
+//submit enable or disable logic start
+ submition.disabled=true
+function enableBtn(){
+  if(emailVerificationResult&&NumberVerificationResult){
+    submition.disabled=false
+    console.log("true");
+  }else{
+    submition.disabled=true
+  }
+}
+emailValidation.addEventListener("keyup",function(){
+   submition.disabled=true
+})
+phoneNumberValidation.addEventListener("keyup",function(){
+  submition.disabled=true
+})
 validateBtn.addEventListener("click", function(){
 
     getNumber(phoneNumberValidation.value) 
-   
+ 
 })
 validateEmailBtn.addEventListener("click", function(){
 
     emailVerification(emailValidation.value) 
-
    
 })
+
+//submit enable or disable logic end
+
 
 async function getNumber(obj) {
 
@@ -34,73 +49,87 @@ async function getNumber(obj) {
     const data = await response.json();
     console.log(data);
     if(data.valid==true){
-        submition.disabled = false;
+      NumberVerificationResult=true;
+      console.log(true);
+      enableBtn()
+    }else{
+      NumberVerificationResult=false;
+      window.alert("verification failed please use number without country code ")
     }
   }
+
  async function emailVerification(email){
-    
-    const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=c6c8a0f3145c485994d38bc9325168dc&email=${email}`, {
+      // caccd9e5b0094d468f8d1cb738680619 working
+  //c6c8a0f3145c485994d38bc9325168dc not working
+    const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=caccd9e5b0094d468f8d1cb738680619&email=${email}`, {
         method: "GET", // or 'PUT'
         mode: "cors",
       });
+      
       const data = await response.json();
-      console.log(data.deliverability);
-      if(data.deliverability=="DELIVERABLE"){
-        console.log("VALID")
+      console.log(data);
+      if(data.error){
+        window.alert("error: "+data.error.message+" button will be enabled")
+        enableBtn()
       }else{
-        console.log("INVALID")
 
+        if(data.deliverability=="DELIVERABLE"){
+          console.log("VALID")
+          emailVerificationResult=true;
+          enableBtn()
+        }else{  
+          emailVerificationResult=false;
+          window.alert("email verification failed");
+          enableBtn()
+            }
       }
-    
   }
-
-
+function checkboxVerification(){
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+  return checkedOne
+}
+function valthisform()
+{
+    var checkboxs=document.getElementsByName("features");
+    var okay=false;
+    for(var i=0,l=checkboxs.length;i<l;i++)
+    {
+        if(checkboxs[i].checked)
+        {
+            okay=true;
+            break;
+        }
+    }
+   return okay;
+}
 document.getElementById("myForm").addEventListener("submit", async (e) => {
    
     e.preventDefault();
-    checkFields()
-  
- 
+    if(!valthisform()){
+      window.alert("Please select at least one feature");
+      return false;
+    }
     var array = []
 var checkboxes = document.querySelectorAll('input.features[type=checkbox]:checked')
 
 for (var i = 0; i < checkboxes.length; i++) {
   array.push(checkboxes[i].value)
 }
-
-let features =array.toString() 
-
+    let features =array.toString() 
     let formData = new FormData(myForm);
-    
-    let entities=Object.fromEntries(formData)
-
-    entities.features = features
-    entities.city=city;
-    entities.state=state;
-    // ...or iterate through the name-value pairs
-    // console.log(entities)
-    const myFormdata = new URLSearchParams();
-    for (const pair of formData) {
-        myFormdata.append(pair[0], pair[1]);
-    }
-    console.log(myFormdata);
-   entities= myFormdata
-    
-     console.log(entities);
-    const response = await fetch(`https://bluemodo.leadspediatrack.com/post.do?lp_campaign_id=64b9ccf73e38c&lp_campaign_key=mYFhzwtX7LKWBGgD34Tb`, {
+    formData.append(features, myForm[features])
+    formData.append(city, myForm[city])
+    formData.append(state, myForm[state])
+    const response = await fetch(`https://bluemodo.leadspediatrack.com/post.do?lp_campaign_id=64b9ccf73e38c&lp_campaign_key=mYFhzwtX7LKWBGgD34Tb&lp_response=json`, {
         method: "POST", // or 'PUT'
-        mode: "cors",
-         body: entities,
-      }).then(response => response.text()).then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    const data = await response.json();
-    console.log(data);
+        // data:formData,
+         body: formData,
+        }).then(response =>  response.json())
+        .then(result =>window.alert(result.result) )
+          .catch(error => console.log('error', error));
+        });
 
-
-  }
-
-  
-  );
   function checkFields(){
     let questionTwoAnswer=document.getElementById("questionTwoAnswer");
     let questionSevenAnswer=document.getElementById("questionSevenAnswer");
@@ -112,7 +141,7 @@ let features =array.toString()
         window.alert("please enter valid zipcode")
         return false;
     }
-    if(!questionTwoAnswer.value||!questionSevenAnswer.value||!phoneNumberValidation||!emailValidation||!firstName||!lastName){
+    if(!questionTwoAnswer.value||!questionSevenAnswer.value||!phoneNumberValidation.value||!emailValidation.value||!firstName.value||!lastName.value){
         
         window.alert("please fill all the fields")
         return false;
@@ -136,9 +165,6 @@ const options = {
 try {
 	const response = await axios.request(options);
     let place=response.data.places;
-
-	// console.log(place[0][ 'place name' ]);
-	// console.log(place[0].state);
     city=place[0][ 'place name' ]
     state=place[0].state
     console.log(city);
@@ -210,8 +236,6 @@ try {
             } 
            
              
-        
-             
         })
         .catch(error => console.log('error', error));
 
@@ -228,10 +252,3 @@ function removeElements() {
       item.remove();
     });
   }
-
-
-  //////////////////////////////////////////////////////////
-
-
-
-
