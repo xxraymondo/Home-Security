@@ -45,7 +45,28 @@
     padding: 15px;
     font-size: 20px;
   }
-  
+
+  .test{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .iti__country-list{
+    background-color: #645979;
+    color: wheat;
+  }
   .AutoInput[type=text] {
     background-color: #f1f1f1;
     width: 100%;

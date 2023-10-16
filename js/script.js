@@ -1,13 +1,34 @@
+import * as code from './countries.js'
+
+
 let phoneNumberValidation =document.getElementById("phoneNumberValidation");
 let emailValidation =document.getElementById("emailValidation");
 let validateBtn=document.getElementById("validateBtn");
 let validateEmailBtn=document.getElementById("validateEmailBtn");
 let submition=document.getElementById("submition");
+let select = document.getElementById("selectCountry");
 let emailVerificationResult;
 let NumberVerificationResult;
 
 let state;
 let city;
+
+(function () {
+  console.log("getCountries");
+  let countries=code.countries
+  countries =Object.keys(countries) 
+  countries=countries.sort()
+
+  for(let i = 0; i < countries.length; i++) {
+    let opt = countries[i];
+    let el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+  }
+ 
+})();
+
 //submit enable or disable logic start
  submition.disabled=true
 function enableBtn(){
@@ -25,8 +46,7 @@ phoneNumberValidation.addEventListener("keyup",function(){
   submition.disabled=true
 })
 validateBtn.addEventListener("click", function(){
-
-    getNumber(phoneNumberValidation.value) 
+    getNumber(phoneNumberValidation.value,select.value) 
  
 })
 validateEmailBtn.addEventListener("click", function(){
@@ -38,9 +58,9 @@ validateEmailBtn.addEventListener("click", function(){
 //submit enable or disable logic end
 
 
-async function getNumber(obj) {
+async function getNumber(obj,count) {
 
-    const response = await fetch(`http://apilayer.net/api/validate?access_key=7739278fe4e4738dd8f6fdc7959990e4&number=${obj}&country_code=EG&format=1`, {
+    const response = await fetch(`http://apilayer.net/api/validate?access_key=7739278fe4e4738dd8f6fdc7959990e4&number=${obj}&country_code=${count}&format=1`, {
         method: "POST", // or 'PUT'
         mode: "cors",
     
@@ -50,11 +70,11 @@ async function getNumber(obj) {
     console.log(data);
     if(data.valid==true){
       NumberVerificationResult=true;
-      console.log(true);
+     window.alert("number is valid");
       enableBtn()
     }else{
       NumberVerificationResult=false;
-      window.alert("verification failed please use number without country code ")
+      window.alert("verification failed please try again")
     }
   }
 
@@ -72,9 +92,10 @@ async function getNumber(obj) {
         window.alert("error: "+data.error.message+" button will be enabled")
         enableBtn()
       }else{
-
+ 
         if(data.deliverability=="DELIVERABLE"){
-          console.log("VALID")
+
+          window.alert("email is valid");
           emailVerificationResult=true;
           enableBtn()
         }else{  
@@ -108,6 +129,10 @@ document.getElementById("myForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     if(!valthisform()){
       window.alert("Please select at least one feature");
+      return false;
+    }
+    if(!checkFields()){
+
       return false;
     }
     var array = []
@@ -146,6 +171,7 @@ for (var i = 0; i < checkboxes.length; i++) {
         window.alert("please fill all the fields")
         return false;
     }
+    return true
   }
  
   let questionTwoAnswer=document.getElementById("questionTwoAnswer")
@@ -252,3 +278,5 @@ function removeElements() {
       item.remove();
     });
   }
+
+  

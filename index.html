@@ -6,12 +6,13 @@
     <title>Document</title>
     
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="./css/style.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100&family=Kanit&family=Rubik&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
 
-
+<link href="./css/style.css" rel="stylesheet">
 </head>
 <body style="background-color: rgb(245, 245, 245);">
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" style="z-index: 10;"data-bs-theme="dark">
@@ -234,17 +235,20 @@
                         <input type="email" id="emailValidation" name="email_address" class="form-control">
                         <button class="btn btn-success" type="button" id="validateEmailBtn" aria-expanded="false">validate</button>
                     </div>
-                    <p style="font-size: 10px;">Please click on validate before submition</p>
+                    <p style="font-size: 15px;">Please click on validate before submition</p>
                   </div>
                  
                   <div class=" mb-3">
                     <label for="phoneNumberValidation" class="form-label">Phone</label>
                     <div class="input-group ">
-                    <input type="tel" id="phoneNumberValidation" name="phone_home"	 class="form-control"   >
+                      <select id="selectCountry">
+                        
+                    </select>
+                    <input type="tel" class="form-control" id="phoneNumberValidation" name="phone_home"	    >
     
                     <button class="btn btn-success" type="button" id="validateBtn" aria-expanded="false">validate</button>
                 </div>
-                <p style="font-size: 10px;">Please click on validate before submition</p>
+                <p style="font-size: 15px;">Please click on validate before submition and don't use country code</p>
                   </div>
                   <!-- disabled = "true"; -->
                   <button type="submit" class="btn btn-primary"   id="submition">submit</button>
@@ -274,9 +278,6 @@
 
 
 
-<!-- <script async
-    src="https://maps.googleapis.com/maps/api/js?key=c6c8a0f3145c485994d38bc9325168dc&libraries=places&callback=initMap">
-</script> -->
 <script type="module" src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
